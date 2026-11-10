@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en" data-theme="auto">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Wolfgang Moser — Solutions Architect in Munich</title>
+  <meta name="description" content="Physicist turned Solutions Architect in Munich. I write about cloud, data and AI and build small tools.">
+  <link rel="canonical" href="https://wolfgangmoser.eu/">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Wolfgang Moser">
+
+  <meta name="theme-color" content="#f7f5ee" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#10150f" media="(prefers-color-scheme: dark)">
+
+  <link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Wolfgang Moser">
+  <meta property="og:title" content="Wolfgang Moser — Solutions Architect in Munich">
+  <meta property="og:description" content="Physicist turned Solutions Architect in Munich. Cloud, data and AI notes and tools.">
+  <meta property="og:url" content="https://wolfgangmoser.eu/">
+  <meta property="og:image" content="https://wolfgangmoser.eu/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Wolfgang Moser, Solutions Architect in Munich">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Wolfgang Moser — Solutions Architect in Munich">
+  <meta name="twitter:description" content="Physicist turned Solutions Architect in Munich. Cloud, data and AI notes and tools.">
+  <meta name="twitter:image" content="https://wolfgangmoser.eu/assets/og-image.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/styles.css">
+
+  <script>
+    (function () {
+      try {
+        var theme = localStorage.getItem('theme');
+        document.documentElement.dataset.theme =
+          theme === 'light' || theme === 'dark' ? theme : 'auto';
+      } catch (error) {
+        document.documentElement.dataset.theme = 'auto';
+      }
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfilePage",
+        "@id": "https://wolfgangmoser.eu/#page",
+        "url": "https://wolfgangmoser.eu/",
+        "name": "Wolfgang Moser",
+        "isPartOf": { "@id": "https://wolfgangmoser.eu/#website" },
+        "mainEntity": { "@id": "https://wolfgangmoser.eu/#person" }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://wolfgangmoser.eu/#website",
+        "url": "https://wolfgangmoser.eu/",
+        "name": "Wolfgang Moser",
+        "inLanguage": "en"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://wolfgangmoser.eu/#person",
+        "name": "Wolfgang Moser",
+        "url": "https://wolfgangmoser.eu/",
+        "image": "https://wolfgangmoser.eu/assets/me.jpg",
+        "jobTitle": "Solutions Architect",
+        "description": "Physicist turned Solutions Architect in Munich, working on cloud, data, AI and DevOps.",
+        "hasCredential": {
+          "@type": "EducationalOccupationalCredential",
+          "name": "AWS Certified Solutions Architect — Professional",
+          "credentialCategory": "certification",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "Amazon Web Services"
+          }
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Munich",
+          "addressCountry": "DE"
+        },
+        "sameAs": [
+          "https://blog.wolfgangmoser.eu/",
+          "https://tpm.wolfgangmoser.eu/",
+          "https://github.com/wolfm89",
+          "https://www.linkedin.com/in/wolfgang-moser/"
+        ],
+        "knowsAbout": [
+          "Cloud Architecture",
+          "Amazon Web Services",
+          "Azure",
+          "Data Engineering",
+          "Data Mesh",
+          "Event-Driven Architecture",
+          "DevOps",
+          "MLOps",
+          "Generative AI",
+          "Terraform",
+          "Serverless"
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="grain" aria-hidden="true">
+    <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" fill="none" stroke="currentColor">
+      <g stroke-width="1.1">
+        <path d="M-80 60C160 20 340 120 580 72S980 10 1280 78" stroke-opacity=".10"/>
+        <path d="M-80 108C170 66 350 168 600 118S1000 56 1280 124" stroke-opacity=".07"/>
+        <path d="M-80 158C140 124 330 216 590 166S1010 104 1280 176" stroke-opacity=".11"/>
+        <path d="M-80 214C180 166 360 268 610 214S1020 152 1280 226" stroke-opacity=".06"/>
+        <path d="M-80 272C150 232 340 322 600 274S1020 214 1280 282" stroke-opacity=".09"/>
+        <path d="M-80 332C190 284 360 382 620 330S1030 272 1280 340" stroke-opacity=".06"/>
+        <path d="M-80 392C160 352 350 442 610 394S1020 334 1280 402" stroke-opacity=".10"/>
+        <path d="M-80 452C180 404 360 502 620 450S1030 392 1280 460" stroke-opacity=".06"/>
+        <path d="M-80 512C150 472 340 562 600 514S1020 454 1280 522" stroke-opacity=".09"/>
+        <path d="M-80 572C190 524 360 622 620 570S1030 512 1280 580" stroke-opacity=".06"/>
+        <path d="M-80 632C160 592 350 682 610 634S1020 574 1280 642" stroke-opacity=".10"/>
+        <path d="M-80 692C180 644 360 742 620 690S1030 632 1280 700" stroke-opacity=".06"/>
+        <path d="M-80 752C150 712 340 802 600 754S1020 694 1280 762" stroke-opacity=".08"/>
+        <path d="M-80 812C190 764 360 862 620 810S1030 752 1280 820" stroke-opacity=".05"/>
+      </g>
+      <g stroke-width="1.4">
+        <path d="M878 430c-44-58 12-128 74-122 60 6 104 54 92 112-14 68-92 104-148 72-52-30-62-102-20-148" stroke-opacity=".10"/>
+        <path d="M894 432c-31-42 10-92 54-88 43 4 76 40 68 82-10 50-68 76-108 52-38-22-45-74-14-106" stroke-opacity=".08"/>
+        <path d="M910 434c-18-25 7-56 34-53 26 2 48 24 42 50-6 30-42 48-66 33-24-14-29-46-10-66" stroke-opacity=".07"/>
+      </g>
+    </svg>
+  </div>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Wolfgang Moser — home">
+      <img src="/assets/logo.svg" width="32" height="32" alt="">
+    </a>
+
+    <button class="theme-toggle" type="button" aria-label="Switch theme" title="Switch theme">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+        <circle cx="12" cy="12" r="8.5"></circle>
+        <path d="M12 3.5v17a8.5 8.5 0 0 0 0-17Z" fill="currentColor" stroke="none"></path>
+      </svg>
+    </button>
+  </header>
+
+  <main id="main" class="wrap">
+    <section class="hero">
+      <div class="portrait-wrap">
+        <svg class="rings" viewBox="0 0 160 160" fill="none" stroke="currentColor" aria-hidden="true">
+          <circle cx="80" cy="80" r="78" stroke-opacity=".45" stroke-width="1" stroke-dasharray="2 7"/>
+          <circle cx="80" cy="80" r="70" stroke-opacity=".25" stroke-width="1"/>
+          <circle cx="80" cy="80" r="62" stroke-opacity=".18" stroke-width="1" stroke-dasharray="34 14"/>
+        </svg>
+        <img class="portrait" src="/assets/me.jpg" width="320" height="320" alt="Wolfgang Moser" fetchpriority="high">
+      </div>
+
+      <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>Solutions Architect · Munich</p>
+      <h1>Wolfgang Moser</h1>
+      <p class="lead">Physicist by training, cloud architect by trade. I design cloud, data and
+        AI systems, write about what I learn, and build small tools.</p>
+
+      <ul class="chips" aria-label="Topics">
+        <li>Cloud</li>
+        <li>Data</li>
+        <li>AI</li>
+        <li>DevOps</li>
+      </ul>
+
+      <p class="credential">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="9"></circle>
+          <path d="m8.5 12.2 2.3 2.3 4.7-4.9"></path>
+        </svg>
+        <a href="https://www.credly.com/badges/6cbb9584-4aa6-41bc-a9f1-f0be9a5854aa" rel="noopener noreferrer">AWS Certified Solutions Architect — Professional</a>
+      </p>
+    </section>
+
+    <section class="projects" aria-labelledby="projects-title">
+      <div class="section-head">
+        <h2 id="projects-title">Projects</h2>
+        <span class="rule" aria-hidden="true"></span>
+      </div>
+
+      <ul class="project-grid">
+        <li style="--i: 0">
+          <a class="project-card" href="https://blog.wolfgangmoser.eu/">
+            <span class="project-top">
+              <span class="project-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 6.5C10.5 5 8.4 4.4 4 4.5v13c4.4-.1 6.5.5 8 2 1.5-1.5 3.6-2.1 8-2v-13c-4.4-.1-6.5.5-8 2Z"/>
+                  <path d="M12 6.5v13"/>
+                </svg>
+              </span>
+              <span class="project-domain">blog.wolfgangmoser.eu</span>
+              <svg class="project-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 17 17 7M9 7h8v8"/>
+              </svg>
+            </span>
+            <span class="project-title">Public Memory</span>
+            <span class="project-desc">Notes on cloud, data, AI and software engineering.</span>
+          </a>
+        </li>
+
+        <li style="--i: 1">
+          <a class="project-card" href="https://tpm.wolfgangmoser.eu/">
+            <span class="project-top">
+              <span class="project-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2c-4 0-8 .5-8 4v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h2.23l2-2H14l2 2h2v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-3.58-4-8-4M7.5 17c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17m3.5-7H6V6h5zm2 0V6h5v4zm3.5 7c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5"/>
+                </svg>
+              </span>
+              <span class="project-domain">tpm.wolfgangmoser.eu</span>
+              <svg class="project-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 17 17 7M9 7h8v8"/>
+              </svg>
+            </span>
+            <span class="project-title">Train Price Monitor</span>
+            <span class="project-desc">Serverless alerts when Deutsche Bahn fares rise above your limit.</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="elsewhere" aria-labelledby="elsewhere-title">
+      <div class="section-head">
+        <h2 id="elsewhere-title">Elsewhere</h2>
+        <span class="rule" aria-hidden="true"></span>
+      </div>
+
+      <ul class="social-links">
+        <li style="--i: 0">
+          <a href="https://github.com/wolfm89">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+            </svg>
+            GitHub
+          </a>
+        </li>
+        <li style="--i: 1">
+          <a href="https://www.linkedin.com/in/wolfgang-moser/">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect x="2" y="9" width="4" height="12"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+            LinkedIn
+          </a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer wrap">
+    <p>© <span id="year">2026</span> Wolfgang Moser · Munich</p>
+    <a class="footer-link" href="https://github.com/wolfm89/landing-page">Source on GitHub</a>
+  </footer>
+
+  <script src="/script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en" data-theme="auto">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page not found — Wolfgang Moser</title>
+  <meta name="description" content="This page does not exist.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script>
+    (function () {
+      try {
+        var theme = localStorage.getItem('theme');
+        document.documentElement.dataset.theme =
+          theme === 'light' || theme === 'dark' ? theme : 'auto';
+      } catch (error) {
+        document.documentElement.dataset.theme = 'auto';
+      }
+    })();
+  </script>
+</head>
+<body>
+  <div class="grain" aria-hidden="true">
+    <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" fill="none" stroke="currentColor">
+      <g stroke-width="1.1">
+        <path d="M-80 60C160 20 340 120 580 72S980 10 1280 78" stroke-opacity=".10"/>
+        <path d="M-80 158C140 124 330 216 590 166S1010 104 1280 176" stroke-opacity=".11"/>
+        <path d="M-80 272C150 232 340 322 600 274S1020 214 1280 282" stroke-opacity=".09"/>
+        <path d="M-80 392C160 352 350 442 610 394S1020 334 1280 402" stroke-opacity=".10"/>
+        <path d="M-80 512C150 472 340 562 600 514S1020 454 1280 522" stroke-opacity=".09"/>
+        <path d="M-80 632C160 592 350 682 610 634S1020 574 1280 642" stroke-opacity=".10"/>
+        <path d="M-80 752C150 712 340 802 600 754S1020 694 1280 762" stroke-opacity=".08"/>
+      </g>
+      <g stroke-width="1.4">
+        <path d="M878 430c-44-58 12-128 74-122 60 6 104 54 92 112-14 68-92 104-148 72-52-30-62-102-20-148" stroke-opacity=".10"/>
+        <path d="M894 432c-31-42 10-92 54-88 43 4 76 40 68 82-10 50-68 76-108 52-38-22-45-74-14-106" stroke-opacity=".08"/>
+      </g>
+    </svg>
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Wolfgang Moser — home">
+      <img src="/assets/logo.svg" width="32" height="32" alt="">
+    </a>
+
+    <button class="theme-toggle" type="button" aria-label="Switch theme" title="Switch theme">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+        <circle cx="12" cy="12" r="8.5"></circle>
+        <path d="M12 3.5v17a8.5 8.5 0 0 0 0-17Z" fill="currentColor" stroke="none"></path>
+      </svg>
+    </button>
+  </header>
+
+  <main id="main" class="wrap">
+    <section class="hero notfound">
+      <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>404</p>
+      <h1>This trail<br>leads nowhere.</h1>
+      <p class="lead">The page you were looking for does not exist. Head back to solid ground.</p>
+      <p class="notfound-links">
+        <a class="button-link" href="/">Back home</a>
+        <a href="https://blog.wolfgangmoser.eu/">Read Public Memory</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer wrap">
+    <p>© <span id="year">2026</span> Wolfgang Moser · Munich</p>
+    <a class="footer-link" href="https://github.com/wolfm89/landing-page">Source on GitHub</a>
+  </footer>
+
+  <script src="/script.js" defer></script>
+</body>
+</html>
