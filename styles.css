@@ -523,6 +523,16 @@ h1 {
   list-style: none;
 }
 
+.project-grid li:nth-child(1),
+.social-links li:nth-child(1) {
+  --i: 0;
+}
+
+.project-grid li:nth-child(2),
+.social-links li:nth-child(2) {
+  --i: 1;
+}
+
 .project-card {
   position: relative;
   display: flex;

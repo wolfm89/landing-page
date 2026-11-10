@@ -1,0 +1,84 @@
+name: Pages
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  check:
+    name: check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Validate HTML
+        run: npx --yes html-validate@9.7.1 index.html 404.html
+
+      - name: Validate JSON-LD and local assets
+        run: |
+          python3 - <<'PY'
+          import json
+          import re
+          from pathlib import Path
+
+          source = Path("index.html").read_text()
+          blocks = re.findall(
+              r'<script type="application/ld\+json">(.*?)</script>',
+              source,
+              re.S,
+          )
+          for block in blocks:
+              json.loads(block)
+
+          for name in ("index.html", "404.html"):
+              text = Path(name).read_text()
+              refs = re.findall(r'(?:href|src)="(/[^"#?]*)', text)
+              missing = [ref for ref in refs if not Path(ref.lstrip("/")).exists()]
+              if missing:
+                  raise SystemExit(f"{name}: missing local assets: {missing}")
+
+          print("JSON-LD and local assets OK")
+          PY
+
+      - name: Check custom domain
+        run: test "$(tr -d '\r\n' < CNAME)" = "wolfgangmoser.eu"
+
+  deploy:
+    name: deploy
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: check
+    runs-on: ubuntu-latest
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Prepare site
+        run: |
+          mkdir -p _site
+          cp index.html 404.html styles.css script.js robots.txt sitemap.xml CNAME .nojekyll _site/
+          cp -r assets _site/
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
