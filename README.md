@@ -38,11 +38,12 @@ Then open <http://127.0.0.1:8000/>.
 
 1. GitHub Pages: **Settings → Pages → Deploy from a branch → `main` / `/ (root)`**.
 2. Custom domain: `wolfgangmoser.eu` (also stored in `CNAME`).
-3. At your DNS provider:
-   - `A @` → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - `CNAME www` → `wolfm89.github.io`
-   - Leave unrelated records (subdomains, MX, TXT and validation records) unchanged.
-4. After the DNS check passes, enable **Enforce HTTPS**.
+3. At your DNS provider, point the apex domain and `www` to GitHub Pages. GitHub requires
+   specific `A`/`AAAA` records for the apex and a `CNAME` for `www`; use the values in
+   [GitHub's custom domain documentation](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site),
+   as they can change. Leave unrelated records (subdomains, MX, TXT and validation records)
+   unchanged.
+4. After GitHub verifies the domain, enable **Enforce HTTPS**.
 
 ## Content notes
 
