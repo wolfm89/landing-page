@@ -29,7 +29,12 @@ def main() -> None:
         except json.JSONDecodeError as error:
             fail(f"index.html: JSON-LD block {index} is invalid: {error}")
 
-    for name in ("index.html", "404.html"):
+    for name in (
+        "index.html",
+        "404.html",
+        "legal-notice/index.html",
+        "privacy-policy/index.html",
+    ):
         text = (ROOT / name).read_text(encoding="utf-8")
         refs = re.findall(r'(?:href|src)="(/[^"#?]*)', text)
         missing = [ref for ref in refs if not (ROOT / ref.lstrip("/")).exists()]

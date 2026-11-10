@@ -45,6 +45,8 @@ PR title as the commit title, and the `title` check enforces the convention.
 | `styles.css` | Warm paper, forest palette, wood grain and motion |
 | `script.js` | Theme toggle and footer year |
 | `404.html` | Not-found page |
+| `legal-notice/index.html` | Bilingual Impressum / Legal Notice |
+| `privacy-policy/index.html` | Bilingual Datenschutz / Privacy Policy |
 | `.github/workflows/pages.yml` | Pull request checks and GitHub Pages deployment |
 | `.github/workflows/pr-title.yml` | Conventional Commit PR title check |
 | `.pre-commit-config.yaml` | Local pre-commit hooks |
@@ -76,6 +78,8 @@ merges are enabled.
 
 ## Content notes
 
-The page intentionally exposes only public professional information: name, role, city,
-topics, one certification, and links. It does **not** publish the postal address,
-phone number, private email, employer, full CV, client names, or project metrics.
+The landing page intentionally exposes only public professional information: name, role,
+city, topics, one certification, and links. The legal pages additionally publish the
+serviceable postal address and the role address `legal@wolfgangmoser.eu` for legal
+contact. The site does **not** publish a phone number, private email address, employer,
+full CV, client names, or project metrics.

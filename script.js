@@ -31,6 +31,19 @@
     updateLabel();
   }
 
+  var back = document.querySelector('[data-back]');
+  if (back) {
+    back.addEventListener('click', function () {
+      if (document.referrer && window.history.length > 1) {
+        window.history.back();
+      } else if (document.referrer) {
+        window.location.href = document.referrer;
+      } else {
+        window.location.href = '/';
+      }
+    });
+  }
+
   var year = document.getElementById('year');
   if (year) {
     year.textContent = new Date().getFullYear();
