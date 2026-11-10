@@ -18,6 +18,19 @@ python3 -m http.server 8000
 
 Then open <http://127.0.0.1:8000/>.
 
+## Pre-commit
+
+The repository uses [pre-commit](https://pre-commit.com/) for local checks that mirror CI.
+
+```sh
+pre-commit install
+pre-commit run --all-files
+```
+
+The hooks cover HTML validation, JSON-LD and local asset checks, YAML/JSON syntax,
+whitespace and line endings, large files, private keys, workflow linting and accidental
+commits to `main`.
+
 ## Structure
 
 | Path | Purpose |
@@ -27,6 +40,8 @@ Then open <http://127.0.0.1:8000/>.
 | `script.js` | Theme toggle and footer year |
 | `404.html` | Not-found page |
 | `.github/workflows/pages.yml` | Pull request checks and GitHub Pages deployment |
+| `.pre-commit-config.yaml` | Local pre-commit hooks |
+| `scripts/check.py` | JSON-LD, local asset and CNAME checks |
 | `CNAME` | Custom domain for GitHub Pages |
 | `robots.txt` | Crawl rules and sitemap reference |
 | `sitemap.xml` | Single canonical URL |
@@ -48,8 +63,8 @@ Then open <http://127.0.0.1:8000/>.
    unchanged.
 4. After GitHub verifies the domain, enable **Enforce HTTPS**.
 
-The `main` branch is protected: pull requests are required, the `check` job must pass,
-linear history is enforced, and force pushes and deletions are blocked. Only squash
+A repository ruleset protects `main`: pull requests are required, the `check` job must
+pass, linear history is enforced, and force pushes and deletions are blocked. Only squash
 merges are enabled.
 
 ## Content notes
