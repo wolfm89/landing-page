@@ -28,8 +28,8 @@ pre-commit run --all-files
 ```
 
 The hooks cover HTML validation, JSON-LD and local asset checks, YAML/JSON syntax,
-whitespace and line endings, large files, private keys, workflow linting and accidental
-commits to `main`.
+whitespace and line endings, large files, private keys and workflow linting. The same
+configuration runs in CI through `pre-commit/action`.
 
 ## Structure
 

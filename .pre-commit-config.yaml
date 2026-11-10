@@ -14,8 +14,6 @@ repos:
       - id: detect-private-key
       - id: check-added-large-files
         args: [--maxkb=500]
-      - id: no-commit-to-branch
-        args: [--branch, main]
 
   - repo: https://github.com/rhysd/actionlint
     rev: v1.7.12
@@ -27,7 +25,7 @@ repos:
     hooks:
       - id: html-validate
         name: html-validate
-        entry: npx --yes html-validate@9.7.1
+        entry: npx --yes html-validate@11.21.0
         language: system
         types: [html]
 
