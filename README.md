@@ -1,6 +1,10 @@
-# landing-page
+<p align="center">
+  <img src="assets/logo.svg" alt="Wolfgang Moser growth-rings logo" width="72" height="72">
+</p>
 
-Personal landing page for [wolfgangmoser.eu](https://wolfgangmoser.eu).
+<h1 align="center">wolfgangmoser.eu</h1>
+
+<p align="center">Personal landing page for Wolfgang Moser — cloud, data and AI.</p>
 
 Plain HTML, CSS and a few lines of JavaScript. No build step, no framework. The page is
 served by GitHub Pages from the root of the `main` branch.
@@ -27,15 +31,17 @@ Then open <http://127.0.0.1:8000/>.
 | `assets/` | Portrait, logo, favicons, social image |
 | `assets/logo.svg` | Primary growth-rings logo (SVG source) |
 | `assets/logo-small.svg` | Simplified 16px favicon variant |
+| `assets/me.png` | Portrait, copied from the blog's source image |
+| `assets/og-image.png` | 1200×630 social sharing card |
 
 ## Deployment
 
 1. GitHub Pages: **Settings → Pages → Deploy from a branch → `main` / `/ (root)`**.
 2. Custom domain: `wolfgangmoser.eu` (also stored in `CNAME`).
-3. DNS at Netim:
+3. At your DNS provider:
    - `A @` → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
    - `CNAME www` → `wolfm89.github.io`
-   - Leave `blog`, `tpm`, MX, TXT and ACM validation records untouched.
+   - Leave unrelated records (subdomains, MX, TXT and validation records) unchanged.
 4. After the DNS check passes, enable **Enforce HTTPS**.
 
 ## Content notes
