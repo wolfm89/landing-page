@@ -7,7 +7,8 @@
 <p align="center">Personal landing page for Wolfgang Moser — cloud, data and AI.</p>
 
 Plain HTML, CSS and a few lines of JavaScript. No build step, no framework. The page is
-served by GitHub Pages from the root of the `main` branch.
+validated and deployed by the GitHub Actions workflow in `.github/workflows/pages.yml`
+on pushes to `main`.
 
 ## Local preview
 
@@ -25,6 +26,7 @@ Then open <http://127.0.0.1:8000/>.
 | `styles.css` | Warm paper, forest palette, wood grain and motion |
 | `script.js` | Theme toggle and footer year |
 | `404.html` | Not-found page |
+| `.github/workflows/pages.yml` | Pull request checks and GitHub Pages deployment |
 | `CNAME` | Custom domain for GitHub Pages |
 | `robots.txt` | Crawl rules and sitemap reference |
 | `sitemap.xml` | Single canonical URL |
@@ -36,7 +38,8 @@ Then open <http://127.0.0.1:8000/>.
 
 ## Deployment
 
-1. GitHub Pages: **Settings → Pages → Deploy from a branch → `main` / `/ (root)`**.
+1. GitHub Pages: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+   The `pages.yml` workflow validates pull requests and deploys `main`.
 2. Custom domain: `wolfgangmoser.eu` (also stored in `CNAME`).
 3. At your DNS provider, point the apex domain and `www` to GitHub Pages. GitHub requires
    specific `A`/`AAAA` records for the apex and a `CNAME` for `www`; use the values in
@@ -44,6 +47,10 @@ Then open <http://127.0.0.1:8000/>.
    as they can change. Leave unrelated records (subdomains, MX, TXT and validation records)
    unchanged.
 4. After GitHub verifies the domain, enable **Enforce HTTPS**.
+
+The `main` branch is protected: pull requests are required, the `check` job must pass,
+linear history is enforced, and force pushes and deletions are blocked. Only squash
+merges are enabled.
 
 ## Content notes
 
