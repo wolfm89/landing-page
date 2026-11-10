@@ -31,6 +31,12 @@ The hooks cover HTML validation, JSON-LD and local asset checks, YAML/JSON synta
 whitespace and line endings, large files, private keys and workflow linting. The same
 configuration runs in CI through `pre-commit/action`.
 
+## Pull requests
+
+Use [Conventional Commits](https://www.conventionalcommits.org/) for pull request titles,
+for example `feat: add ...`, `fix: ...`, `docs: ...` or `ci: ...`. Squash merges use the
+PR title as the commit title, and the `title` check enforces the convention.
+
 ## Structure
 
 | Path | Purpose |
@@ -40,6 +46,7 @@ configuration runs in CI through `pre-commit/action`.
 | `script.js` | Theme toggle and footer year |
 | `404.html` | Not-found page |
 | `.github/workflows/pages.yml` | Pull request checks and GitHub Pages deployment |
+| `.github/workflows/pr-title.yml` | Conventional Commit PR title check |
 | `.pre-commit-config.yaml` | Local pre-commit hooks |
 | `scripts/check.py` | JSON-LD, local asset and CNAME checks |
 | `CNAME` | Custom domain for GitHub Pages |
