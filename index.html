@@ -10,7 +10,7 @@
   <meta name="robots" content="index, follow">
   <meta name="author" content="Wolfgang Moser">
 
-  <meta name="theme-color" content="#f7f5ee" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#efece0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#10150f" media="(prefers-color-scheme: dark)">
 
   <link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
@@ -37,7 +37,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles.css?v=20261110-2">
 
   <script>
     (function () {
@@ -160,34 +160,46 @@
 
   <main id="main" class="wrap">
     <section class="hero">
-      <div class="portrait-wrap">
-        <svg class="rings" viewBox="0 0 160 160" fill="none" stroke="currentColor" aria-hidden="true">
-          <circle cx="80" cy="80" r="78" stroke-opacity=".45" stroke-width="1" stroke-dasharray="2 7"/>
-          <circle cx="80" cy="80" r="70" stroke-opacity=".25" stroke-width="1"/>
-          <circle cx="80" cy="80" r="62" stroke-opacity=".18" stroke-width="1" stroke-dasharray="34 14"/>
-        </svg>
-        <img class="portrait" src="/assets/me.jpg" width="320" height="320" alt="Wolfgang Moser" fetchpriority="high">
+      <div class="identity">
+        <div class="portrait-wrap portrait-small">
+          <svg class="rings" viewBox="0 0 160 160" fill="none" stroke="currentColor" aria-hidden="true">
+            <circle cx="80" cy="80" r="78" stroke-opacity=".45" stroke-width="1" stroke-dasharray="2 7"/>
+            <circle cx="80" cy="80" r="70" stroke-opacity=".25" stroke-width="1"/>
+            <circle cx="80" cy="80" r="62" stroke-opacity=".18" stroke-width="1" stroke-dasharray="34 14"/>
+          </svg>
+          <span class="portrait-frame">
+            <img class="portrait" src="/assets/me.jpg" width="320" height="320" alt="Wolfgang Moser" fetchpriority="high">
+          </span>
+        </div>
+
+        <div class="identity-copy">
+          <p class="eyebrow">
+            <span class="eyebrow-dot" aria-hidden="true"></span>
+            <span class="eyebrow-person">Wolfgang Moser</span>
+            <span class="eyebrow-role">Solutions Architect · Munich</span>
+          </p>
+          <h1>Notes and tools from a cloud architect.</h1>
+        </div>
       </div>
 
-      <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>Solutions Architect · Munich</p>
-      <h1>Wolfgang Moser</h1>
-      <p class="lead">Physicist by training, cloud architect by trade. I design cloud, data and
-        AI systems, write about what I learn, and build small tools.</p>
+      <p class="lead">Physicist by training, cloud architect by trade. I write about what I learn and build small tools.</p>
 
-      <ul class="chips" aria-label="Topics">
-        <li>Cloud</li>
-        <li>Data</li>
-        <li>AI</li>
-        <li>DevOps</li>
-      </ul>
+      <div class="hero-meta">
+        <ul class="chips" aria-label="Topics">
+          <li>Cloud</li>
+          <li>Data</li>
+          <li>AI</li>
+          <li>DevOps</li>
+        </ul>
 
-      <p class="credential">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="12" cy="12" r="9"></circle>
-          <path d="m8.5 12.2 2.3 2.3 4.7-4.9"></path>
-        </svg>
-        <a href="https://www.credly.com/badges/6cbb9584-4aa6-41bc-a9f1-f0be9a5854aa" rel="noopener noreferrer">AWS Certified Solutions Architect — Professional</a>
-      </p>
+        <p class="credential">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"></circle>
+            <path d="m8.5 12.2 2.3 2.3 4.7-4.9"></path>
+          </svg>
+          <a href="https://www.credly.com/badges/6cbb9584-4aa6-41bc-a9f1-f0be9a5854aa" rel="noopener noreferrer">AWS Certified Solutions Architect — Professional</a>
+        </p>
+      </div>
     </section>
 
     <section class="projects" aria-labelledby="projects-title">
@@ -270,6 +282,6 @@
     <a class="footer-link" href="https://github.com/wolfm89/landing-page">Source on GitHub</a>
   </footer>
 
-  <script src="/script.js" defer></script>
+  <script src="/script.js?v=20261110-1" defer></script>
 </body>
 </html>
