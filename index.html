@@ -33,11 +33,10 @@
   <meta name="twitter:description" content="Physicist turned Solutions Architect in Munich. Cloud, data and AI notes and tools.">
   <meta name="twitter:image" content="https://wolfgangmoser.eu/assets/og-image.png">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" href="/assets/fonts/ibm-plex-sans-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/fraunces-latin-opsz-600.woff2" as="font" type="font/woff2" crossorigin>
 
-  <link rel="stylesheet" href="/styles.css?v=20261110-2">
+  <link rel="stylesheet" href="/styles.css?v=20261111-1">
 
   <script>
     (function () {
@@ -279,9 +278,13 @@
 
   <footer class="site-footer wrap">
     <p>© <span id="year">2026</span> Wolfgang Moser · Munich</p>
-    <a class="footer-link" href="https://github.com/wolfm89/landing-page">Source on GitHub</a>
+    <nav class="footer-links" aria-label="Legal and source links">
+      <a class="footer-link" href="/legal-notice/">Impressum / Legal Notice</a>
+      <a class="footer-link" href="/privacy-policy/">Datenschutz / Privacy Policy</a>
+      <a class="footer-link" href="https://github.com/wolfm89/landing-page">Source on GitHub</a>
+    </nav>
   </footer>
 
-  <script src="/script.js?v=20261110-1" defer></script>
+  <script src="/script.js?v=20261111-1" defer></script>
 </body>
 </html>
