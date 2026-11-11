@@ -181,8 +181,8 @@
         Registrierung verarbeite ich Ihre E-Mail-Adresse, Ihren Namen und Ihr Passwort.
         Registrierung und Anmeldung laufen über Amazon Cognito; das Passwort wird nicht im
         Klartext gespeichert. Zur Bestätigung Ihrer E-Mail-Adresse und zum Zurücksetzen des
-        Passworts sendet Ihnen Amazon Cognito E-Mails vom Absender
-        no-reply@verificationemail.com. Außerdem speichere ich Ihre E-Mail-Adresse, Ihren
+        Passworts sendet Ihnen Amazon Cognito über Amazon SES eine E-Mail vom Absender
+        trainpricemonitor@wolfgangmoser.eu. Außerdem speichere ich Ihre E-Mail-Adresse, Ihren
         Namen, eine zufällig erzeugte Nutzerkennung und Ihre Einstellungen in der Datenbank
         der App (Amazon DynamoDB).
       </p>
@@ -522,8 +522,9 @@
         <strong>Account.</strong> You need an account to use the app. When you sign up, I
         process your email address, your name and your password. Sign-up and sign-in run on
         Amazon Cognito; the password is not stored in plain text. To confirm your email
-        address and to reset your password, Amazon Cognito sends you emails from
-        no-reply@verificationemail.com. I also store your email address, your name, a
+        address and to reset your password, Amazon Cognito sends you an email through
+        Amazon SES from trainpricemonitor@wolfgangmoser.eu. I also store your email address,
+        your name, a
         randomly generated user ID and your settings in the app’s database (Amazon
         DynamoDB).
       </p>
