@@ -234,7 +234,10 @@
         E-Mail-Benachrichtigungen eingeschaltet (Voreinstellung, im Profil abschaltbar),
         sende ich Ihnen zusätzlich über Amazon SES eine E-Mail vom Absender
         trainpricemonitor@wolfgangmoser.eu. Sie enthält Ihren Vornamen, die Bahnhöfe, bei
-        Preisalarmen den aktuellen Preis und Ihren Grenzpreis sowie einen Link zur App.
+        Preisalarmen den aktuellen Preis und Ihren Grenzpreis sowie einen Link zur App. Wird
+        eine E-Mail an Sie dauerhaft unzustellbar zurückgewiesen oder als Spam gemeldet,
+        setzt SES Ihre Adresse auf eine Sperrliste, damit keine weiteren E-Mails an sie
+        gehen.
       </p>
       <p>
         <strong>Rechtsgrundlage.</strong> Die beschriebene Verarbeitung ist erforderlich,
@@ -360,7 +363,8 @@
           <strong>Konto:</strong> bis Sie Ihr Konto löschen oder mich darum bitten.
           Registrierungen, die Sie nicht innerhalb von sieben Tagen bestätigen, werden
           automatisch gelöscht. Mit dem Konto werden Profilbild, beobachtete Verbindungen,
-          Benachrichtigungen und gegebenenfalls der Empfängereintrag bei SES sofort gelöscht.
+          Benachrichtigungen und gegebenenfalls der Empfängereintrag und ein Eintrag auf der
+          Sperrliste bei SES sofort gelöscht.
           In der Datensicherung der Datenbank bleiben gelöschte Einträge noch bis zu 35 Tage
           enthalten; sie wird nur zur Wiederherstellung nach einem Störfall verwendet.
         </li>
@@ -578,7 +582,8 @@
         switched on (the default; you can switch them off in your profile), I also send you
         an email through Amazon SES from trainpricemonitor@wolfgangmoser.eu. It contains
         your first name, the stations, for price alerts the current price and your limit,
-        and a link to the app.
+        and a link to the app. If an email to you bounces permanently or is reported as spam,
+        SES puts your address on a suppression list so that no further emails are sent to it.
       </p>
       <p>
         <strong>Legal basis.</strong> The processing described above is necessary to provide
@@ -700,7 +705,7 @@
           <strong>Account:</strong> until you delete your account or ask me to. Sign-ups that
           you do not confirm within seven days are deleted automatically. Deleting the account
           immediately removes the profile picture, watched connections, notifications and, if
-          present, the recipient entry at SES as well. Deleted database entries remain in the
+          present, the recipient entry and a suppression-list entry at SES as well. Deleted database entries remain in the
           database backup for up to 35 more days; the backup is only used to recover from an
           incident.
         </li>
