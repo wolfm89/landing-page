@@ -187,15 +187,6 @@
         der App (Amazon DynamoDB).
       </p>
       <p>
-        <strong>Bestätigung bei Amazon SES.</strong> Der E-Mail-Versand der App (Amazon
-        Simple Email Service, „SES“) läuft derzeit noch in einem eingeschränkten Modus, in
-        dem nur bestätigte Empfängeradressen beliefert werden. Bei Ihrer ersten Anmeldung
-        wird Ihre E-Mail-Adresse deshalb als Empfänger bei SES eingetragen, und Sie erhalten
-        eine zusätzliche Bestätigungs-E-Mail von Amazon Web Services. Ohne diese Bestätigung
-        kann ich Ihnen keine Benachrichtigungen per E-Mail senden; die App selbst können Sie
-        trotzdem nutzen. Der Eintrag wird mit Ihrem Konto gelöscht.
-      </p>
-      <p>
         <strong>Profil und Reiseeinstellungen.</strong> Freiwillig können Sie ein
         Profilbild hochladen (JPEG, PNG oder GIF bis 500 KB) und Reiseeinstellungen
         hinterlegen: Ermäßigungskarten wie die BahnCard, Ihre Altersgruppe und ob Sie ein
@@ -256,10 +247,10 @@
         seiner Programmierschnittstellen im Ereignisverlauf von AWS CloudTrail auf: jede
         Anfrage Ihres Browsers an Amazon Cognito (etwa Registrierung, Anmeldung, Erneuerung
         der Anmeldetoken, Passwortänderung, Kontolöschung) mit IP-Adresse, Browserkennung
-        und der Cognito-Kennung Ihres Kontos sowie, solange SES im eingeschränkten Modus
-        läuft, das Ein- und Austragen Ihrer E-Mail-Adresse bei SES mit dieser Adresse.
-        Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; mein berechtigtes Interesse liegt im
-        sicheren und fehlerfreien Betrieb der App.
+        und der Cognito-Kennung Ihres Kontos. Soweit Ihre E-Mail-Adresse in der Zeit des
+        eingeschränkten SES-Modus bei SES ein- oder ausgetragen wurde, ist auch das für 90
+        Tage im Ereignisverlauf gespeichert. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO;
+        mein berechtigtes Interesse liegt im sicheren und fehlerfreien Betrieb der App.
       </p>
 
       <h3 id="de-6">6. Kontakt per E-Mail</h3>
@@ -363,8 +354,8 @@
           <strong>Konto:</strong> bis Sie Ihr Konto löschen oder mich darum bitten.
           Registrierungen, die Sie nicht innerhalb von sieben Tagen bestätigen, werden
           automatisch gelöscht. Mit dem Konto werden Profilbild, beobachtete Verbindungen,
-          Benachrichtigungen und gegebenenfalls der Empfängereintrag und ein Eintrag auf der
-          Sperrliste bei SES sofort gelöscht.
+          Benachrichtigungen und gegebenenfalls ein Eintrag auf der Sperrliste bei SES sofort
+          gelöscht.
           In der Datensicherung der Datenbank bleiben gelöschte Einträge noch bis zu 35 Tage
           enthalten; sie wird nur zur Wiederherstellung nach einem Störfall verwendet.
         </li>
@@ -537,15 +528,6 @@
         DynamoDB).
       </p>
       <p>
-        <strong>Confirmation with Amazon SES.</strong> The app’s email sending (Amazon
-        Simple Email Service, “SES”) currently still runs in a restricted mode in which only
-        confirmed recipient addresses receive mail. When you first sign in, your email
-        address is therefore registered as a recipient with SES, and you receive an
-        additional confirmation email from Amazon Web Services. Without this confirmation I
-        cannot send you email notifications; you can still use the app itself. The entry is
-        deleted together with your account.
-      </p>
-      <p>
         <strong>Profile and travel preferences.</strong> You can optionally upload a profile
         picture (JPEG, PNG or GIF up to 500 KB) and save travel preferences: discount cards
         such as the BahnCard, your age group and whether you have a Deutschlandticket. The
@@ -600,10 +582,10 @@
         calls to its programming interfaces in the AWS CloudTrail event history: every
         request your browser makes to Amazon Cognito (such as sign-up, sign-in, renewing the
         sign-in tokens, changing the password, deleting the account) with the IP address,
-        the browser identifier and the Cognito ID of your account, and, while SES runs in
-        restricted mode, the registration and removal of your email address at SES,
-        including the address. The legal basis is Art. 6(1)(f) GDPR; my legitimate interest
-        is the secure and error-free operation of the app.
+        the browser identifier and the Cognito ID of your account. Where your email address
+        was registered with or removed from SES while it ran in restricted mode, the event
+        history keeps that for 90 days as well. The legal basis is Art. 6(1)(f) GDPR; my
+        legitimate interest is the secure and error-free operation of the app.
       </p>
 
       <h3 id="en-6">6. Contact by email</h3>
@@ -705,9 +687,9 @@
           <strong>Account:</strong> until you delete your account or ask me to. Sign-ups that
           you do not confirm within seven days are deleted automatically. Deleting the account
           immediately removes the profile picture, watched connections, notifications and, if
-          present, the recipient entry and a suppression-list entry at SES as well. Deleted database entries remain in the
-          database backup for up to 35 more days; the backup is only used to recover from an
-          incident.
+          present, a suppression-list entry at SES as well. Deleted database entries remain
+          in the database backup for up to 35 more days; the backup is only used to recover
+          from an incident.
         </li>
         <li><strong>Watched connections:</strong> until you delete them, otherwise until the first hourly check after they expire; if that check does not happen, seven days after expiry.</li>
         <li><strong>Notifications:</strong> 90 days after they are created or, if later, seven days after the related connection expires. Price alerts are deleted together with the expired connection; deleting a connection also deletes its notifications.</li>
