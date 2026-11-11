@@ -971,6 +971,40 @@ h1 {
   border-top: 1px solid var(--border);
 }
 
+.legal-prose h2[id],
+.legal-prose h3[id] {
+  scroll-margin-top: 20px;
+}
+
+.legal-jump {
+  margin-top: 6px;
+}
+
+.legal-meta a {
+  color: var(--forest);
+  text-decoration-color: color-mix(in srgb, var(--forest) 45%, transparent);
+  text-underline-offset: 3px;
+}
+
+.legal-meta a:hover {
+  text-decoration-color: var(--sage);
+}
+
+/* Art. 21(4) GDPR: the right to object must stand apart from the other information. */
+.legal-callout {
+  margin: 0 0 16px;
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--sage);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--sage-soft) 40%, var(--surface));
+}
+
+.legal-prose .legal-callout p {
+  margin: 0;
+  color: var(--ink);
+}
+
 /* ------------------------------------------------------------------
    Entrance motion
    ------------------------------------------------------------------ */
