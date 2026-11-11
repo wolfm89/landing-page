@@ -101,7 +101,7 @@ Train Price Monitor. Both are bilingual; in the privacy policy the German versio
 The policy describes what the three sites actually do, so update it, including the
 "Stand / Last updated" date, before or together with any change to hosting, fonts, browser
 storage, logging, third parties or retention in any of the three repositories. Train Price
-Monitor keeps its records of processing and runbooks in `docs/privacy/`.
+Monitor keeps the matching engineering notes in `docs/privacy.md`.
 
 ## Content notes
 
