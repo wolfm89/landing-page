@@ -108,11 +108,33 @@
       for (var i = index - 1; i >= 0; i--) {
         if (entries[i].url && pageUrl(entries[i].url) !== here) {
           event.preventDefault();
-          var traversal = navigation.traverseTo(entries[i].key);
-          if (traversal && typeof traversal.catch === 'function') {
-            traversal.catch(function () {
-              window.location.href = '/';
-            });
+
+          var traversal;
+          try {
+            traversal = navigation.traverseTo(entries[i].key);
+          } catch (error) {
+            window.location.href = '/';
+            return;
+          }
+
+          var fellBack = false;
+          var fallback = function () {
+            if (
+              fellBack ||
+              navigation.transition ||
+              pageUrl(window.location.href) !== here
+            ) {
+              return;
+            }
+            fellBack = true;
+            window.location.href = '/';
+          };
+
+          if (traversal && traversal.committed) {
+            traversal.committed.catch(fallback);
+          }
+          if (traversal && traversal.finished) {
+            traversal.finished.catch(fallback);
           }
           return;
         }
