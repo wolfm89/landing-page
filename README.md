@@ -45,7 +45,7 @@ PR title as the commit title, and the `title` check enforces the convention.
 | --- | --- |
 | `index.html` | Landing page, metadata and `Person`/`ProfilePage` JSON-LD |
 | `styles.css` | Warm paper, forest palette, wood grain and motion |
-| `script.js` | Theme toggle and footer year |
+| `script.js` | Theme and motion preferences, back link and footer year |
 | `404.html` | Not-found page |
 | `legal-notice/index.html` | Bilingual Impressum / Legal Notice |
 | `privacy-policy/index.html` | Bilingual Datenschutz / Privacy Policy |
@@ -82,8 +82,9 @@ merges are enabled.
 ## Fonts
 
 Fraunces and IBM Plex Sans are self-hosted from `assets/fonts/`, declared with `@font-face`
-at the top of `styles.css`, and the two used on every page are preloaded. They are the Latin
-and Latin Extended subsets from Fontsource 5.3.0 under the SIL Open Font License; Fraunces
+at the top of `styles.css`, and the faces used above the fold (Plex 400/500/600 and
+Fraunces 600, Latin subset) are preloaded. They are the Latin and Latin Extended subsets
+from Fontsource 5.3.0 under the SIL Open Font License; Fraunces
 is instanced at weight 600 with its optical-size axis kept, matching what the page used from
 Google Fonts:
 

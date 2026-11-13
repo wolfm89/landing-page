@@ -20,9 +20,11 @@
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 
   <link rel="preload" href="/assets/fonts/ibm-plex-sans-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/ibm-plex-sans-latin-500.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/ibm-plex-sans-latin-600.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/fraunces-latin-opsz-600.woff2" as="font" type="font/woff2" crossorigin>
 
-  <link rel="stylesheet" href="/styles.css?v=20261111-1">
+  <link rel="stylesheet" href="/styles.css?v=20261113-1">
 
   <script>
     (function () {
@@ -30,8 +32,18 @@
         var theme = localStorage.getItem('theme');
         document.documentElement.dataset.theme =
           theme === 'light' || theme === 'dark' ? theme : 'auto';
+        if (theme === 'light' || theme === 'dark') {
+          var color = theme === 'dark' ? '#10150f' : '#efece0';
+          var metas = document.querySelectorAll('meta[name="theme-color"]');
+          for (var i = 0; i < metas.length; i++) {
+            metas[i].setAttribute('content', color);
+          }
+        }
+        var motion = localStorage.getItem('motion');
+        document.documentElement.dataset.motion = motion === 'off' ? 'off' : 'auto';
       } catch (error) {
         document.documentElement.dataset.theme = 'auto';
+        document.documentElement.dataset.motion = 'auto';
       }
     })();
   </script>
@@ -79,9 +91,9 @@
   </header>
 
   <main id="main" class="wrap legal-page">
-    <button class="back-link" type="button" data-back>
-      <span aria-hidden="true">←</span> Zurück / Back
-    </button>
+    <a class="back-link" href="/" data-back>
+      <span aria-hidden="true">←</span> Zurück / <span lang="en">Back</span>
+    </a>
 
     <p class="eyebrow">
       <span class="eyebrow-dot" aria-hidden="true"></span>
@@ -94,7 +106,7 @@
       these three websites.
     </p>
 
-    <p class="legal-meta">Stand: 11. November 2026 · Last updated: 11 November 2026</p>
+    <p class="legal-meta">Stand: 13. November 2026 · Last updated: 13 November 2026</p>
     <p class="legal-meta legal-jump">
       <a href="#datenschutz" lang="de">Deutsch</a> · <a href="#privacy" lang="en">English</a>
     </p>
@@ -283,7 +295,7 @@
         Einträge abgelegt:
       </p>
       <ul>
-        <li>Landingpage: <code>theme</code> – Ihre Wahl zwischen heller und dunkler Darstellung, sobald Sie den Umschalter benutzen;</li>
+        <li>Landingpage: <code>theme</code> – Ihre Wahl zwischen heller und dunkler Darstellung, sobald Sie den Umschalter benutzen; <code>motion</code> – Ihre Wahl, ob die Hintergrundbewegung läuft, sobald Sie den Schalter „Reduce motion“ benutzen;</li>
         <li>Blog: <code>pref-theme</code> – dasselbe für den Blog;</li>
         <li>
           Train Price Monitor: Einträge, deren Name mit
@@ -294,11 +306,13 @@
         </li>
       </ul>
       <p>
-        Die gewählte Darstellung verlässt Ihr Gerät nicht. Die Anmeldetoken sendet die App
-        bei jeder Anfrage an ihre Server, um Sie zu authentifizieren. Speichern und
+        Die gewählte Darstellung und Bewegungseinstellung verlassen Ihr Gerät nicht. Die
+        Anmeldetoken sendet die App bei jeder Anfrage an ihre Server, um Sie zu
+        authentifizieren. Speichern und
         Auslesen dieser Einträge sind nach § 25 Abs. 2 Nr. 2 TDDDG ohne Einwilligung
         zulässig, weil sie unbedingt erforderlich sind, um die von Ihnen ausdrücklich
-        gewünschte Funktion bereitzustellen: die gewählte Darstellung oder die Anmeldung.
+        gewünschte Funktion bereitzustellen: die gewählte Darstellung, die
+        Bewegungseinstellung oder die Anmeldung.
         Sie können die Einträge jederzeit in den Einstellungen Ihres Browsers löschen.
       </p>
 
@@ -618,7 +632,7 @@
         advertising services. Only these entries are kept in your browser’s local storage:
       </p>
       <ul>
-        <li>Landing page: <code>theme</code> – your choice between light and dark mode, once you use the switch;</li>
+        <li>Landing page: <code>theme</code> – your choice between light and dark mode, once you use the switch; <code>motion</code> – your choice whether the background motion runs, once you use the “Reduce motion” button;</li>
         <li>Blog: <code>pref-theme</code> – the same for the blog;</li>
         <li>
           Train Price Monitor: entries whose names start with
@@ -629,13 +643,13 @@
         </li>
       </ul>
       <p>
-        Your colour-scheme choice never leaves your device. The app sends the sign-in tokens
-        to its servers with every request to authenticate you. Storing and reading these
-        entries is permitted without consent under § 25(2) no. 2 TDDDG (German
-        Telecommunications Digital Services Data Protection Act), because it is strictly
-        necessary to provide the function you explicitly asked for: your chosen colour
-        scheme or signing in. You can delete the entries at any time in your browser
-        settings.
+        Your colour-scheme and motion choices never leave your device. The app sends the
+        sign-in tokens to its servers with every request to authenticate you. Storing and
+        reading these entries is permitted without consent under § 25(2) no. 2 TDDDG
+        (German Telecommunications Digital Services Data Protection Act), because it is
+        strictly necessary to provide the function you explicitly asked for: your chosen
+        colour scheme, your motion preference or signing in. You can delete the entries at
+        any time in your browser settings.
       </p>
 
       <h3 id="en-8">8. Recipients</h3>
@@ -778,13 +792,16 @@
 
   <footer class="site-footer wrap">
     <p>© <span id="year">2026</span> Wolfgang Moser · Munich</p>
-    <nav class="footer-links" aria-label="Legal and source links">
-      <a class="footer-link" href="/legal-notice/">Impressum / Legal Notice</a>
-      <a class="footer-link" href="/privacy-policy/">Datenschutz / Privacy Policy</a>
-      <a class="footer-link" href="https://github.com/wolfm89/landing-page">Source on GitHub</a>
-    </nav>
+    <div class="footer-actions">
+      <nav class="footer-links" aria-label="Rechtliches und Quellen">
+        <a class="footer-link" href="/legal-notice/">Impressum / <span lang="en">Legal Notice</span></a>
+        <a class="footer-link" href="/privacy-policy/">Datenschutz / <span lang="en">Privacy Policy</span></a>
+        <a class="footer-link" href="https://github.com/wolfm89/landing-page"><span lang="en">Source on GitHub</span></a>
+      </nav>
+      <button class="footer-link footer-motion" type="button" data-motion-toggle aria-pressed="false"><span lang="en">Reduce motion</span><span class="footer-motion-check" aria-hidden="true">✓</span></button>
+    </div>
   </footer>
 
-  <script src="/script.js?v=20261111-1" defer></script>
+  <script src="/script.js?v=20261113-1" defer></script>
 </body>
 </html>

@@ -2,6 +2,8 @@
   var root = document.documentElement;
   var button = document.querySelector('.theme-toggle');
   var media = window.matchMedia('(prefers-color-scheme: dark)');
+  var themeColors = { light: '#efece0', dark: '#10150f' };
+  var themeMetas = document.querySelectorAll('meta[name="theme-color"]');
 
   function effectiveTheme() {
     var theme = root.dataset.theme;
@@ -9,10 +11,20 @@
     return media.matches ? 'dark' : 'light';
   }
 
-  function updateLabel() {
-    var next = effectiveTheme() === 'dark' ? 'light' : 'dark';
-    button.setAttribute('aria-label', 'Switch to ' + next + ' theme');
-    button.title = 'Switch to ' + next + ' theme';
+  function updateThemeColor() {
+    var color = themeColors[effectiveTheme()];
+    for (var i = 0; i < themeMetas.length; i++) {
+      themeMetas[i].setAttribute('content', color);
+    }
+  }
+
+  function updateTheme() {
+    if (button) {
+      var next = effectiveTheme() === 'dark' ? 'light' : 'dark';
+      button.setAttribute('aria-label', 'Switch to ' + next + ' theme');
+      button.title = 'Switch to ' + next + ' theme';
+    }
+    updateThemeColor();
   }
 
   if (button) {
@@ -24,11 +36,39 @@
       } catch (error) {
         /* storage may be unavailable; the theme still switches for this page */
       }
-      updateLabel();
+      updateTheme();
+    });
+  }
+
+  media.addEventListener('change', updateTheme);
+  updateTheme();
+
+  var reduceMedia = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var motionButton = document.querySelector('[data-motion-toggle]');
+
+  function motionOff() {
+    return root.dataset.motion === 'off' || reduceMedia.matches;
+  }
+
+  function updateMotion() {
+    if (!motionButton) return;
+    motionButton.setAttribute('aria-pressed', String(motionOff()));
+  }
+
+  if (motionButton) {
+    motionButton.addEventListener('click', function () {
+      var next = motionOff() ? 'auto' : 'off';
+      root.dataset.motion = next;
+      try {
+        localStorage.setItem('motion', next);
+      } catch (error) {
+        /* storage may be unavailable; the setting still applies for this page */
+      }
+      updateMotion();
     });
 
-    media.addEventListener('change', updateLabel);
-    updateLabel();
+    reduceMedia.addEventListener('change', updateMotion);
+    updateMotion();
   }
 
   var back = document.querySelector('[data-back]');
@@ -37,41 +77,46 @@
       return String(url).split('#')[0];
     };
 
-    back.addEventListener('click', function () {
-      var here = pageUrl(window.location.href);
-      var navigation = window.navigation;
-      var steps = 1;
-
-      // With the Navigation API, skip this page's own anchor entries and go to
-      // the last page of this site visited before it.
-      if (navigation && navigation.currentEntry && typeof navigation.entries === 'function') {
-        var entries = navigation.entries();
-        var index = navigation.currentEntry.index;
-        for (var i = index - 1; i >= 0; i--) {
-          if (entries[i].url && pageUrl(entries[i].url) !== here) {
-            navigation.traverseTo(entries[i].key);
-            return;
-          }
-        }
-        // Only this page so far: step over it to whatever came before, if anything.
-        steps = index + 1;
+    back.addEventListener('click', function (event) {
+      if (
+        event.defaultPrevented ||
+        event.button !== 0 ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey
+      ) {
+        return;
       }
 
-      // The previous entry may be another site, or there may be none (a new
-      // tab). If this page is still shown shortly after going back, nothing
-      // left it, so go to the referrer or the home page instead.
-      var leaving = false;
-      var markLeaving = function () {
-        leaving = true;
-      };
-      window.addEventListener('beforeunload', markLeaving, { once: true });
-      window.addEventListener('pagehide', markLeaving, { once: true });
-      window.history.go(-steps);
-      window.setTimeout(function () {
-        if (!leaving && pageUrl(window.location.href) === here) {
-          window.location.href = document.referrer || '/';
+      // With the Navigation API, skip this page's own anchor entries and go to
+      // the last page of this site visited before it. Otherwise the link's
+      // href takes over and returns home.
+      var navigation = window.navigation;
+      if (
+        !navigation ||
+        !navigation.currentEntry ||
+        typeof navigation.entries !== 'function' ||
+        typeof navigation.traverseTo !== 'function'
+      ) {
+        return;
+      }
+
+      var here = pageUrl(window.location.href);
+      var entries = navigation.entries();
+      var index = navigation.currentEntry.index;
+      for (var i = index - 1; i >= 0; i--) {
+        if (entries[i].url && pageUrl(entries[i].url) !== here) {
+          event.preventDefault();
+          var traversal = navigation.traverseTo(entries[i].key);
+          if (traversal && typeof traversal.catch === 'function') {
+            traversal.catch(function () {
+              window.location.href = '/';
+            });
+          }
+          return;
         }
-      }, 400);
+      }
     });
   }
 
