@@ -106,7 +106,7 @@
       these three websites.
     </p>
 
-    <p class="legal-meta">Stand: 13. November 2026 · Last updated: 13 November 2026</p>
+    <p class="legal-meta">Stand: 26. November 2026 · Last updated: 26 November 2026</p>
     <p class="legal-meta legal-jump">
       <a href="#datenschutz" lang="de">Deutsch</a> · <a href="#privacy" lang="en">English</a>
     </p>
@@ -137,8 +137,8 @@
         <li>E-Mails, die Sie mir an eine Adresse unter wolfgangmoser.eu schicken.</li>
       </ul>
       <p>
-        Für Websites anderer Anbieter, auf die ich verlinke (zum Beispiel GitHub oder
-        LinkedIn), gelten deren eigene Datenschutzerklärungen.
+        Für Websites anderer Anbieter, auf die ich verlinke (zum Beispiel GitHub, LinkedIn
+        oder bahn.de), gelten deren eigene Datenschutzerklärungen.
       </p>
 
       <h3 id="de-3">3. Hosting von Landingpage und Blog</h3>
@@ -209,33 +209,38 @@
         <strong>Verbindungssuche.</strong> Bei der Suche nach Bahnhöfen gleicht die App
         Ihre Eingabe mit einer in der App enthaltenen Bahnhofsliste ab; dabei werden keine
         Daten an Dritte übermittelt. Für die Suche nach Verbindungen und Preisen ruft die
-        App die Fahrplan- und Preisauskunft von bahn.de der DB Fernverkehr AG,
-        Europa-Allee 78–84, 60486 Frankfurt am Main, ab. Übermittelt werden nur die
-        Suchangaben: Start- und Zielbahnhof, Datum und Uhrzeit, Wagenklasse,
-        Suchoptionen wie Verkehrsmittel und Umstiege sowie gegebenenfalls Fahrradmitnahme,
-        Altersgruppe, Ermäßigungskarte und Deutschlandticket. Die Anfragen stellen die
-        Server der App bei AWS; Ihre IP-Adresse, Ihr Name, Ihre E-Mail-Adresse und Ihre
-        Nutzerkennung werden nicht übermittelt. Die DB verarbeitet die Anfragen in eigener
-        Verantwortung.
+        App die Fahrplan- und Preisauskunft der DB Navigator API (app.services-bahn.de) ab,
+        die von der DB Fernverkehr AG, Europa-Allee 78–84, 60486 Frankfurt am Main,
+        betrieben wird. Übermittelt werden die Suchangaben: Start- und Zielbahnhof,
+        Datum und Uhrzeit, Wagenklasse, Suchoptionen wie Verkehrsmittel und Umstiege sowie
+        gegebenenfalls Fahrradmitnahme, Altersgruppe, Ermäßigungskarte und Deutschlandticket.
+        Die Anfragen stellen die Server der App bei AWS; Ihre IP-Adresse, Ihr Name, Ihre
+        E-Mail-Adresse und Ihre Nutzerkennung werden nicht übermittelt. Bei der Aktualisierung
+        einer beobachteten Verbindung übermitteln die Server der App zusätzlich die von der
+        DB dafür ausgegebene Verbindungskennung (Refresh-Token). Die DB-Unternehmen
+        verarbeiten die Anfragen als gemeinsam Verantwortliche.
       </p>
       <p>
-        <strong>Weiterleitung über Decodo.</strong> Kommt eine Anfrage der App bei bahn.de
-        nicht durch, etwa weil bahn.de sie ablehnt oder nicht rechtzeitig beantwortet, wird
-        dieselbe Anfrage über den Dienst „Decodo“ der UAB „Data troops“, Švitrigailos str. 34,
-        LT-03230 Vilnius, Litauen, an bahn.de gestellt; zeitweise können auch alle Anfragen
-        diesen Weg nehmen. Decodo ist dabei als mein Auftragsverarbeiter tätig, erhält
-        dieselben Suchangaben, ebenfalls ohne Angaben zu Ihrer Person, und leitet die Anfrage
-        über ein weltweites Netz von Proxy-Servern weiter.
+        <strong>Weiterleitung über Decodo.</strong> Kommt eine Anfrage der App bei der
+        DB Navigator API nicht durch, etwa weil die DB sie ablehnt oder nicht rechtzeitig
+        beantwortet, wird dieselbe Anfrage über den Dienst „Decodo“ der UAB „Data troops“,
+        Švitrigailos str. 34, LT-03230 Vilnius, Litauen, an die DB gestellt; zeitweise können
+        auch alle Anfragen diesen Weg nehmen. Decodo ist dabei als mein Auftragsverarbeiter
+        tätig, erhält dieselbe Anfrage, bei Aktualisierungen einschließlich der von der DB
+        ausgegebenen Verbindungskennung, aber ohne Ihren Namen, Ihre E-Mail-Adresse, Ihre
+        Nutzerkennung und Ihre IP-Adresse, und leitet die Anfrage über ein weltweites Netz
+        von Proxy-Servern weiter.
       </p>
       <p>
         <strong>Beobachtete Verbindungen und Benachrichtigungen.</strong> Wenn Sie eine
         Verbindung beobachten, speichere ich die Suchangaben, Ihren Grenzpreis, den
         Ablaufzeitpunkt (eine Stunde vor Abfahrt) und den zuletzt ermittelten Preis mit den
-        Fahrtdaten. Die App prüft die Preise stündlich. Erreicht oder übersteigt ein Preis
-        Ihren Grenzpreis, ist eine Verbindung abgelaufen oder lässt sie sich nicht mehr
-        verfolgen, erhalten Sie eine Benachrichtigung in der App. Sind
-        E-Mail-Benachrichtigungen eingeschaltet (Voreinstellung, im Profil abschaltbar),
-        sende ich Ihnen zusätzlich über Amazon SES eine E-Mail vom Absender
+        Fahrtdaten sowie die von der DB ausgegebene Verbindungskennung. Die App prüft die
+        Preise stündlich. Erreicht oder übersteigt ein Preis Ihren Grenzpreis, ist eine
+        Verbindung abgelaufen oder lässt sie sich nicht mehr verfolgen, erhalten Sie eine
+        Benachrichtigung in der App. Sind E-Mail-Benachrichtigungen eingeschaltet
+        (Voreinstellung, im Profil abschaltbar), sende ich Ihnen zusätzlich über Amazon SES
+        eine E-Mail vom Absender
         trainpricemonitor@wolfgangmoser.eu. Sie enthält Ihren Vornamen, die Bahnhöfe, bei
         Preisalarmen den aktuellen Preis und Ihren Grenzpreis sowie einen Link zur App. Wird
         eine E-Mail an Sie dauerhaft unzustellbar zurückgewiesen oder als Spam gemeldet,
@@ -249,6 +254,28 @@
         Rufen Sie die App ohne Konto auf, ist Rechtsgrundlage für ihre Auslieferung über
         Amazon CloudFront Art. 6 Abs. 1 lit. f DSGVO; mein berechtigtes Interesse liegt in
         einer sicheren und zuverlässigen Bereitstellung der App.
+      </p>
+      <p>
+        <strong>Buchungslink zu bahn.de.</strong> Bei einer beobachteten Verbindung können
+        Sie über einen Link die Buchungssuche auf bahn.de mit den gespeicherten Angaben
+        öffnen. Den Link baut die App in Ihrem Browser aus den bereits gespeicherten
+        Angaben: Start- und Zielbahnhof, gegebenenfalls mit ihren Bahnhofs-IDs, Abfahrtszeit,
+        Wagenklasse sowie Ihre BahnCard-Art, falls hinterlegt, und die Angabe, ob Sie ein
+        Deutschlandticket haben. Erst wenn Sie den Link anklicken, öffnet Ihr Browser
+        bahn.de mit diesen Angaben; bahn.de verarbeitet sie zusammen mit den üblichen
+        Verbindungsdaten, insbesondere der IP-Adresse und den Browserangaben. Die Anfrage
+        geht direkt von Ihrem Browser an bahn.de und läuft nicht über meine Server; ich
+        erfahre nichts vom Klick und protokolliere ihn nicht. Der Link
+        enthält keine Angaben zu Ihrem Konto, Ihrem Namen, Ihrer E-Mail-Adresse oder Ihren
+        Anmeldetoken und wird ohne Herkunftsangabe (Referrer) geöffnet. Für die Buchung und
+        die weitere Verarbeitung auf bahn.de sind die DB Vertrieb GmbH (Europa-Allee 70–76,
+        60486 Frankfurt am Main), die DB Fernverkehr AG (Europa-Allee 78–84, 60486 Frankfurt
+        am Main) und die DB Regio AG (Europa-Allee 70–76, 60486 Frankfurt am Main) gemeinsam
+        verantwortlich (Art. 26 DSGVO); Betreiberin der Website ist die DB Fernverkehr AG.
+        Es gelten die
+        <a href="https://www.bahn.de/datenschutz" rel="noopener noreferrer">Datenschutzhinweise der DB</a>.
+        Die Nutzung des Links ist freiwillig; bahn.de setzt dabei Cookies; Einzelheiten
+        stehen in den Datenschutzhinweisen und der Cookie-Auswahl von bahn.de.
       </p>
       <p>
         <strong>Protokolle.</strong> Zur Fehlersuche und zum Schutz vor Missbrauch
@@ -315,14 +342,20 @@
         Bewegungseinstellung oder die Anmeldung.
         Sie können die Einträge jederzeit in den Einstellungen Ihres Browsers löschen.
       </p>
+      <p>
+        Der Buchungslink zu bahn.de (<a href="#de-5">Abschnitt 5</a>) führt auf eine Website,
+        die Cookies setzt; dort gelten die Datenschutzhinweise und Cookie-Einstellungen von
+        bahn.de.
+      </p>
 
       <h3 id="de-8">8. Empfänger</h3>
       <p>Personenbezogene Daten erhalten außer mir nur:</p>
       <ul>
         <li>GitHub als Anbieter von GitHub Pages für Landingpage und Blog (<a href="#de-3">Abschnitt 3</a>);</li>
         <li>AWS als Auftragsverarbeiter für Train Price Monitor (<a href="#de-5">Abschnitt 5</a>);</li>
-        <li>die UAB „Data troops“ (Decodo) als Auftragsverarbeiter für weitergeleitete Anfragen an bahn.de, ohne Angaben zu Ihrer Person (<a href="#de-5">Abschnitt 5</a>);</li>
-        <li>die DB Fernverkehr AG als Empfänger der Suchangaben, ebenfalls ohne Angaben zu Ihrer Person (<a href="#de-5">Abschnitt 5</a>);</li>
+        <li>die UAB „Data troops“ (Decodo) als Auftragsverarbeiter für weitergeleitete Anfragen an die DB, bei Aktualisierungen einschließlich der von der DB ausgegebenen Verbindungskennung, ohne Ihren Namen, Ihre E-Mail-Adresse, Ihre Nutzerkennung und Ihre IP-Adresse; die Suchangaben umfassen jedoch Altersgruppe, Ermäßigungskarte und Deutschlandticket-Status (<a href="#de-5">Abschnitt 5</a>);</li>
+        <li>die DB Vertrieb GmbH, die DB Fernverkehr AG und die DB Regio AG als gemeinsam Verantwortliche für die Suchanfragen an die DB Navigator API, die von der DB Fernverkehr AG betrieben wird, bei Aktualisierungen einschließlich der von der DB ausgegebenen Verbindungskennung, ohne Ihren Namen, Ihre E-Mail-Adresse, Ihre Nutzerkennung und Ihre IP-Adresse; die Suchangaben umfassen jedoch Altersgruppe, Ermäßigungskarte und Deutschlandticket-Status (<a href="#de-5">Abschnitt 5</a>);</li>
+        <li>die DB Vertrieb GmbH, die DB Fernverkehr AG und die DB Regio AG als gemeinsam Verantwortliche für bahn.de, wenn Sie einen Buchungslink anklicken; dabei erhalten sie Ihre Reiseangaben sowie die üblichen Verbindungsdaten wie die IP-Adresse Ihres Browsers (<a href="#de-5">Abschnitt 5</a>);</li>
         <li>die NETIM SAS und die Proton AG für E-Mails an mich (<a href="#de-6">Abschnitt 6</a>).</li>
       </ul>
       <p>
@@ -350,10 +383,15 @@
       </p>
       <p>
         Decodo leitet Anfragen über ein weltweites Proxy-Netz weiter; sie können dabei Server
-        außerhalb der EU durchlaufen. Sie enthalten nur die Suchangaben aus
-        <a href="#de-5">Abschnitt 5</a> und nichts, womit Decodo oder die Betreiber dieser
-        Server Sie identifizieren könnten. Einen Angemessenheitsbeschluss oder
-        Standardvertragsklauseln gibt es für diese Weiterleitung nicht.
+        außerhalb der EU durchlaufen. Sie enthalten die Anfrage aus
+        <a href="#de-5">Abschnitt 5</a> einschließlich der dort genannten Verbindungskennung,
+        aber weder Ihren Namen noch Ihre E-Mail-Adresse, Ihre Nutzerkennung oder Ihre
+        IP-Adresse. Einzelheiten zur Übermittlung regelt mein Vertrag zur Auftragsverarbeitung
+        mit Decodo; eine Kopie erhalten Sie auf Anfrage.
+      </p>
+      <p>
+        Die DB-Unternehmen haben ihren Sitz in Deutschland; die Anfragen an sie sind keine
+        Übermittlung in ein Drittland.
       </p>
       <p>
         Die Proton AG hat ihren Sitz in der Schweiz. Für die Schweiz hat die Europäische
@@ -373,10 +411,11 @@
           In der Datensicherung der Datenbank bleiben gelöschte Einträge noch bis zu 35 Tage
           enthalten; sie wird nur zur Wiederherstellung nach einem Störfall verwendet.
         </li>
-        <li><strong>Beobachtete Verbindungen:</strong> bis Sie sie löschen, sonst bis zur ersten stündlichen Prüfung nach ihrem Ablauf; unterbleibt diese, sieben Tage nach Ablauf.</li>
+        <li><strong>Beobachtete Verbindungen:</strong> bis Sie sie löschen, sonst bis zur ersten stündlichen Prüfung nach ihrem Ablauf; unterbleibt diese, sieben Tage nach Ablauf. Die von der DB ausgegebene Verbindungskennung wird mit der Verbindung gelöscht; in einer Ablaufbenachrichtigung kann sie bis zu deren Löschung nach 90 Tagen enthalten sein.</li>
         <li><strong>Benachrichtigungen:</strong> 90 Tage nach ihrer Erstellung oder, falls das später ist, sieben Tage nach Ablauf der zugehörigen Verbindung. Preisalarme werden zusammen mit der abgelaufenen Verbindung gelöscht; löschen Sie eine Verbindung, werden auch ihre Benachrichtigungen gelöscht.</li>
         <li><strong>Warteschlange für E-Mail-Benachrichtigungen</strong> (Nutzer- und Benachrichtigungskennung): höchstens vier Tage, nach wiederholten Fehlern höchstens 14 Tage.</li>
         <li><strong>Protokolle:</strong> 14 Tage; Ereignisverlauf von AWS CloudTrail: 90 Tage.</li>
+        <li><strong>Buchungslink:</strong> Ich speichere für den Link nichts zusätzlich. Die Angaben stammen aus der gespeicherten Verbindung und Ihrem Profil und stehen in der von Ihrem Browser geöffneten Adresse; sie bleiben in Ihrer Browser-Historie, bis Sie sie dort löschen.</li>
         <li><strong>Lokale Speicherung:</strong> bis Sie die Einträge löschen oder sich abmelden (<a href="#de-7">Abschnitt 7</a>).</li>
         <li><strong>E-Mails:</strong> siehe <a href="#de-6">Abschnitt 6</a>.</li>
       </ul>
@@ -485,8 +524,8 @@
         <li>emails you send me at an address under wolfgangmoser.eu.</li>
       </ul>
       <p>
-        Websites of other providers that I link to (for example GitHub or LinkedIn) are
-        covered by their own privacy policies.
+        Websites of other providers that I link to (for example GitHub, LinkedIn or
+        bahn.de) are covered by their own privacy policies.
       </p>
 
       <h3 id="en-3">3. Hosting of the landing page and the blog</h3>
@@ -553,31 +592,35 @@
         <strong>Connection search.</strong> When you search for stations, the app matches
         your input against a station list built into the app; no data is sent to third
         parties. To search for connections and prices, the app queries the timetable and
-        fare service of bahn.de operated by DB Fernverkehr AG, Europa-Allee 78–84,
-        60486 Frankfurt am Main, Germany. Only the search details are sent: departure and
-        arrival station, date and time, travel class, search options such as means of
-        transport and changes, and, where applicable, bicycle, age group, discount card and
-        Deutschlandticket. The requests are made by the app’s servers at AWS; your IP
-        address, name, email address and user ID are not sent. DB processes the requests
-        under its own responsibility.
+        fare service of the DB Navigator API (app.services-bahn.de), operated by DB
+        Fernverkehr AG, Europa-Allee 78–84, 60486 Frankfurt am Main, Germany. The search
+        details are sent: departure and arrival station, date and time, travel class,
+        search options such as means of transport and changes, and, where applicable,
+        bicycle, age group, discount card and Deutschlandticket. The requests are made by
+        the app’s servers at AWS; your IP address, name, email address and user ID are not
+        sent. To update a watched connection, the app’s servers also send the connection
+        identifier issued by DB for it (refresh token). The DB companies process the requests
+        as joint controllers.
       </p>
       <p>
         <strong>Forwarding through Decodo.</strong> If a request from the app does not get
-        through to bahn.de, for example because bahn.de rejects it or does not answer in time,
-        the same request is sent to bahn.de through the “Decodo” service of UAB “Data troops”,
-        Švitrigailos str. 34, LT-03230 Vilnius, Lithuania; at times, all requests may take
-        this route. Decodo acts as my processor, receives the same search details, again
-        without any information about you, and forwards the request through a worldwide
-        network of proxy servers.
+        through to the DB Navigator API, for example because DB rejects it or does not answer
+        in time, the same request is sent to DB through the “Decodo” service of UAB “Data
+        troops”, Švitrigailos str. 34, LT-03230 Vilnius, Lithuania; at times, all requests may
+        take this route. Decodo acts as my processor, receives the same request, including
+        the connection identifier issued by DB when a connection is updated, but without your
+        name, email address, user ID and IP address, and forwards the request through a
+        worldwide network of proxy servers.
       </p>
       <p>
         <strong>Watched connections and notifications.</strong> When you watch a connection,
         I store the search details, your price limit, the expiry time (one hour before
-        departure) and the most recent price with the journey details. The app checks prices
-        every hour. If a price reaches or exceeds your limit, a connection expires or can no
-        longer be tracked, you get a notification in the app. If email notifications are
-        switched on (the default; you can switch them off in your profile), I also send you
-        an email through Amazon SES from trainpricemonitor@wolfgangmoser.eu. It contains
+        departure) and the most recent price with the journey details, as well as the
+        connection identifier issued by DB. The app checks prices every hour. If a price
+        reaches or exceeds your limit, a connection expires or can no longer be tracked, you
+        get a notification in the app. If email notifications are switched on (the default;
+        you can switch them off in your profile), I also send you an email through Amazon
+        SES from trainpricemonitor@wolfgangmoser.eu. It contains
         your first name, the stations, for price alerts the current price and your limit,
         and a link to the app. If an email to you bounces permanently or is reported as spam,
         SES puts your address on a suppression list so that no further emails are sent to it.
@@ -588,6 +631,26 @@
         optional details in your profile. If you open the app without an account, the legal
         basis for delivering it through Amazon CloudFront is Art. 6(1)(f) GDPR; my
         legitimate interest is secure and reliable delivery of the app.
+      </p>
+      <p>
+        <strong>Booking link to bahn.de.</strong> For a watched connection, you can open the
+        booking search on bahn.de with the stored details through a link. The app builds the
+        link in your browser from the details already stored: origin and destination, where
+        available with their station IDs, departure time, travel class and your BahnCard
+        type, if stored, and whether you have a Deutschlandticket. Only when you click the
+        link does your browser open bahn.de with these details; bahn.de processes them
+        together with the usual connection data, in particular your browser’s IP address and
+        browser information. The request goes directly from your browser to bahn.de and does
+        not pass through my servers; I do not learn about the click and do not log it. The
+        link contains no details about your account, name, email address or sign-in tokens
+        and opens without a referrer. DB Vertrieb GmbH (Europa-Allee 70–76, 60486 Frankfurt
+        am Main), DB Fernverkehr AG (Europa-Allee 78–84, 60486 Frankfurt am Main) and DB
+        Regio AG (Europa-Allee 70–76, 60486 Frankfurt am Main) are jointly responsible for
+        the booking and further processing on bahn.de (Art. 26 GDPR); DB Fernverkehr AG
+        operates the website. Their
+        <a href="https://int.bahn.de/en/privacy" rel="noopener noreferrer">privacy statement</a>
+        applies. Using the link is voluntary; bahn.de sets cookies; details are in
+        its privacy statement and cookie settings.
       </p>
       <p>
         <strong>Logs.</strong> To find errors and prevent abuse, the app’s servers log their
@@ -651,14 +714,19 @@
         colour scheme, your motion preference or signing in. You can delete the entries at
         any time in your browser settings.
       </p>
+      <p>
+        The booking link to bahn.de (<a href="#en-5">section 5</a>) leads to a website that
+        sets cookies; bahn.de’s privacy statement and cookie settings apply there.
+      </p>
 
       <h3 id="en-8">8. Recipients</h3>
       <p>Apart from me, personal data is received only by:</p>
       <ul>
         <li>GitHub as the provider of GitHub Pages for the landing page and the blog (<a href="#en-3">section 3</a>);</li>
         <li>AWS as the processor for Train Price Monitor (<a href="#en-5">section 5</a>);</li>
-        <li>UAB “Data troops” (Decodo) as the processor for forwarded requests to bahn.de, without any information about you (<a href="#en-5">section 5</a>);</li>
-        <li>DB Fernverkehr AG as the recipient of the search details, also without any information about you (<a href="#en-5">section 5</a>);</li>
+        <li>UAB “Data troops” (Decodo) as the processor for forwarded requests to DB, including the connection identifier issued by DB when a connection is updated, without your name, email address, user ID and IP address; the search details do, however, include age group, discount card and Deutschlandticket status (<a href="#en-5">section 5</a>);</li>
+        <li>DB Vertrieb GmbH, DB Fernverkehr AG and DB Regio AG as joint controllers for the search requests to the DB Navigator API, which is operated by DB Fernverkehr AG, including the connection identifier issued by DB when a connection is updated, without your name, email address, user ID and IP address; the search details do, however, include age group, discount card and Deutschlandticket status (<a href="#en-5">section 5</a>);</li>
+        <li>DB Vertrieb GmbH, DB Fernverkehr AG and DB Regio AG as joint controllers for bahn.de, when you click a booking link; they then receive your travel details and the usual connection data such as your browser’s IP address (<a href="#en-5">section 5</a>);</li>
         <li>NETIM SAS and Proton AG for emails to me (<a href="#en-6">section 6</a>).</li>
       </ul>
       <p>
@@ -685,10 +753,15 @@
       </p>
       <p>
         Decodo forwards requests through a worldwide proxy network, so they may pass through
-        servers outside the EU. They contain only the search details from
-        <a href="#en-5">section 5</a> and nothing that would let Decodo or the operators of
-        those servers identify you. There is no adequacy decision or standard contractual
-        clauses for this forwarding.
+        servers outside the EU. They contain the request from
+        <a href="#en-5">section 5</a>, including the connection identifier mentioned there,
+        but neither your name nor your email address, user ID or IP address. Details of the
+        transfer are governed by my data processing agreement with Decodo; I will send you a
+        copy on request.
+      </p>
+      <p>
+        The DB companies are based in Germany; the requests to them are not a transfer to a
+        third country.
       </p>
       <p>
         Proton AG is based in Switzerland, for which the European Commission has found an
@@ -706,10 +779,11 @@
           in the database backup for up to 35 more days; the backup is only used to recover
           from an incident.
         </li>
-        <li><strong>Watched connections:</strong> until you delete them, otherwise until the first hourly check after they expire; if that check does not happen, seven days after expiry.</li>
+        <li><strong>Watched connections:</strong> until you delete them, otherwise until the first hourly check after they expire; if that check does not happen, seven days after expiry. The connection identifier issued by DB is deleted with the connection; an expiry notification may contain it until that notification is deleted after 90 days.</li>
         <li><strong>Notifications:</strong> 90 days after they are created or, if later, seven days after the related connection expires. Price alerts are deleted together with the expired connection; deleting a connection also deletes its notifications.</li>
         <li><strong>Queue for email notifications</strong> (user and notification ID): at most four days, after repeated errors at most 14 days.</li>
         <li><strong>Logs:</strong> 14 days; AWS CloudTrail event history: 90 days.</li>
+        <li><strong>Booking link:</strong> I store nothing additional for the link. The details come from the stored connection and your profile and exist in the address your browser opens; they remain in your browser history until you delete them there.</li>
         <li><strong>Local storage:</strong> until you delete the entries or sign out (<a href="#en-7">section 7</a>).</li>
         <li><strong>Emails:</strong> see <a href="#en-6">section 6</a>.</li>
       </ul>
